@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using CounterStrikeSharp.API;
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Commands;
 using CounterStrikeSharp.API.Modules.Utils;
@@ -28,7 +26,6 @@ public class WeatherPlugin : BasePlugin, IPluginConfig<APIConfigs>
     {
         Config = config;
         _weatherClient.Initialize(config);
-        Server.PrintToChatAll(Config.WeatherUrl);
     }
 
     [CommandHelper(1, "css_weather <city name>")]
@@ -38,7 +35,10 @@ public class WeatherPlugin : BasePlugin, IPluginConfig<APIConfigs>
         var response = _weatherClient.GetWeatherCity(info.GetArg(1));
 
         if (response.Result == null)
+        {
+            info.ReplyToCommand($"[Weather] result is null!");
             return;
+        }
 
         var data = response.Result;
 
