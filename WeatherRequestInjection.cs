@@ -1,6 +1,7 @@
 ﻿using CounterStrikeSharp.API.Core;
 using Microsoft.Extensions.DependencyInjection;
 using WeatherPlugin.Models;
+using WeatherPlugin.Services;
 using WeatherPlugin.Services.IServices;
 
 namespace WeatherPlugin;

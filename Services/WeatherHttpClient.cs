@@ -2,8 +2,9 @@
 using Microsoft.Extensions.Logging;
 using System.Net.Http.Json;
 using WeatherPlugin.Models;
+using WeatherPlugin.Services.IServices;
 
-namespace WeatherPlugin.Services.IServices;
+namespace WeatherPlugin.Services;
 
 public class WeatherHttpClient(
     HttpClient httpClient,
